@@ -1,0 +1,29 @@
+.posts_container {
+  width: 75%;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  padding: 1.5rem 1rem 2rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 2rem;
+}
+
+@media screen and (max-width: 860px) {
+  .posts_container {
+    width: 100%;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .posts_container {
+    width: 100%;
+    height: fit-content;
+    overflow: auto;
+    align-items: center;
+    gap: 2rem;
+  }
+}

@@ -1,0 +1,13 @@
+.profile_post-section {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: scroll;
+}
+
+@media screen and (max-width: 780px) {
+  .profile_post-section {
+    height: fit-content;
+    overflow: auto;
+  }
+}

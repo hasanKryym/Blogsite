@@ -1,0 +1,34 @@
+.home_container {
+  display: flex;
+}
+
+.home_content {
+  margin-left: 1rem;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+.home_page_aside-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 860px) {
+  .home_page_aside-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .home_content {
+    margin-left: 0;
+    padding-bottom: 2rem;
+  }
+  .side_bar-container {
+    display: none;
+  }
+  .mobile_nav-container.home_nav {
+    display: initial;
+  }
+}

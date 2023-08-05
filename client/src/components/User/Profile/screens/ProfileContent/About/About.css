@@ -1,0 +1,18 @@
+.profile-info {
+  margin-bottom: 4rem;
+}
+
+.profile-info .profile_contact-info_title {
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: var(--darkblue);
+}
+
+.profile-info > h4 {
+  margin-bottom: 0.6rem;
+}
+
+.profile-info > h4 > a {
+  text-decoration: none;
+}

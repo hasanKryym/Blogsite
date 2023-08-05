@@ -1,0 +1,68 @@
+.profile_post {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+}
+
+.profile_post .image_container {
+  text-align: center;
+  height: 400px;
+}
+
+.profile_post .profile_post-title {
+  text-transform: capitalize;
+}
+
+.profile_post .image_container img {
+  width: 100%;
+  border-radius: 10px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile_post .btns_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile_post .profile_functional-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.profile_post .profile_functional-btns button {
+  font-size: 16px;
+}
+
+.profile_post .profile_post-reactions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.5rem 0 0 1rem;
+}
+
+.profile_post .profile_post-reactions > span {
+  margin-right: 2rem;
+}
+
+.profile_post .profile_post-reactions > button {
+  border: none;
+  background: var(--grey);
+  font-size: 24px;
+  margin-right: 1rem;
+}
+
+.profile_post .profile_post-reactions > button:hover {
+  cursor: pointer;
+}
+
+.profile_post .profile_post-info > p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 560px) {
+}

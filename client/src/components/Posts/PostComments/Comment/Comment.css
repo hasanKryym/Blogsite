@@ -1,0 +1,15 @@
+.comment {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.comment .user_profile-info {
+  display: flex;
+  gap: 1rem;
+}
+
+.comment .user_profile-info > img {
+  width: 50px;
+  max-height: 50px;
+  object-fit: cover;
+  border-radius: 100px;
+}

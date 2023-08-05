@@ -1,0 +1,105 @@
+// USER
+
+const editUser = async (inputs) => {
+  try {
+    const body = inputs;
+    const response = await fetch(`http://localhost:5000/api/v1/users/edit`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+    const parseRes = await response.json();
+
+    return parseRes;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// POSTS
+
+const addPost = async (inputs) => {
+  try {
+    const body = inputs;
+    const response = await fetch(`http://localhost:5000/api/v1/posts/`, {
+      method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    });
+    const parseRes = await response.json();
+    return parseRes;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const managePostLikes = async (post_id) => {
+  try {
+    const response = await fetch(
+      `http://localhost:5000/api/v1/posts/postReactions/likes/${post_id}`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: localStorage.getItem('token'),
+        },
+      }
+    );
+    const parseRes = await response.json();
+    return parseRes;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const managePostViews = async (post_id) => {
+  try {
+    const response = await fetch(
+      `http://localhost:5000/api/v1/posts/postReactions/views/${post_id}`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: localStorage.getItem('token'),
+        },
+      }
+    );
+    const parseRes = await response.json();
+    return parseRes;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const addPostComment = async (post_id, comment_content) => {
+  try {
+    const body = { comment_content };
+    const response = await fetch(
+      `http://localhost:5000/api/v1/posts/postReactions/comments/${post_id}`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: localStorage.getItem('token'),
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      }
+    );
+    const parseRes = await response.json();
+    return parseRes;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+module.exports = {
+  editUser,
+  addPost,
+  managePostLikes,
+  managePostViews,
+  addPostComment,
+};

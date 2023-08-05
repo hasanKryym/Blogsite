@@ -1,0 +1,30 @@
+.profile_container {
+  display: flex;
+  gap: 2rem;
+  overflow-x: hidden;
+}
+
+.profile_aside {
+  width: 20%;
+}
+
+@media screen and (max-width: 950px) {
+  .profile_aside {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .profile_container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mobile_nav-container.profile_nav {
+    display: initial;
+  }
+}

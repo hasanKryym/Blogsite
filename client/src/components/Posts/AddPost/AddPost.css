@@ -1,0 +1,101 @@
+.create_post-form {
+  width: 60%;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1000px;
+  min-width: 350px;
+}
+
+.create_post-form > input {
+  padding: 1rem;
+  outline: none;
+  border-radius: 8px;
+  border: none;
+}
+
+.create_post-form > input.post_title {
+  text-transform: capitalize;
+}
+
+.create_post-form .add_post-post_category {
+  width: fit-content;
+}
+
+.create_post-form .add_post-post_category .category_btn {
+  border: none;
+  padding: 1rem;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #000;
+  /* width: max-content; */
+  justify-content: center;
+  width: 120px;
+}
+
+.create_post-form .add_post-post_category .category_btn:hover {
+  cursor: pointer;
+}
+
+.create_post-form .add_post-post_category .category_btn > span {
+  font-size: 20px;
+}
+
+.add_post-post_category .category_list {
+  list-style: none;
+  height: 10rem;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  position: absolute;
+  z-index: 1000;
+}
+
+.add_post-post_category .category_list::-webkit-scrollbar {
+  display: initial;
+  width: 5px;
+}
+
+.add_post-post_category .category_list::-webkit-scrollbar-thumb {
+  background: #444;
+}
+
+.add_post-post_category .category_list::-webkit-scrollbar-thumb:hover {
+  background: #222;
+}
+
+.add_post-post_category .category_list::-webkit-scrollbar-track {
+  background: #999;
+}
+
+.add_post-post_category .category_list > li {
+  padding: 1rem 0 1rem 1rem;
+  background: #fff;
+  color: #000;
+  border-bottom: 1px solid #000;
+  transition: var(--transition);
+}
+
+.add_post-post_category .category_list > li:hover {
+  cursor: pointer;
+  background: var(--darkblue);
+  color: var(--grey);
+}
+
+.create_post-form > button {
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--darkblue);
+  color: var(--grey);
+  font-size: 20px;
+  transition: var(--transition);
+}
+
+.create_post-form > button:hover {
+  cursor: pointer;
+  background: var(--darkpink);
+  color: var(--darkblue);
+}

@@ -1,0 +1,22 @@
+.mobile-nav_list-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  background: var(--darkblue);
+  gap: 1rem;
+  width: 100%;
+}
+.mobile_nav-container {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.mobile-nav_list-container > a {
+  padding: 1rem;
+  color: var(--darkpink);
+  font-size: 20px;
+}

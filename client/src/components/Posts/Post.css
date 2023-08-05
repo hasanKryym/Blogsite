@@ -1,0 +1,70 @@
+.post {
+  width: 320px;
+  height: 360px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 0.4rem 1rem;
+}
+
+.post .post_image-container {
+  width: 100%;
+  position: relative;
+}
+.post .post_image-container .category_type {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  background: #fff;
+  padding: 4px 12px;
+  border: none;
+  border-radius: 2px;
+  text-transform: capitalize;
+}
+
+.post .post_image-container .category_type:hover {
+  cursor: default;
+}
+
+.post .post_image-container > img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.post .post_content .post_title {
+  text-transform: capitalize;
+}
+
+.post .post_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+}
+
+.post .post_info span {
+  margin-right: 14px;
+}
+
+.post .post_description {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.post .post_description-container {
+  overflow: hidden;
+}
+
+.post .post_views {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post .showDetails_btn {
+  margin-top: 1rem;
+  text-transform: capitalize;
+  font-weight: bold;
+}

@@ -1,0 +1,83 @@
+.side_bar {
+  background: var(--darkblue);
+  height: 100vh;
+  max-width: 240px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+.side_bar .side_bar-arrow {
+  padding: 6px;
+  width: 100%;
+  background: var(--darkpink);
+  font-size: 18px;
+  border: none;
+  color: var(--grey);
+  transition: var(--transition);
+}
+
+.side_bar .side_bar-arrow:hover {
+  cursor: pointer;
+  color: var(--darkblue);
+  background: var(--lightpink);
+  border: none;
+}
+
+.side_bar .header {
+  padding: 1rem;
+}
+
+.side_bar .header .side_bar-title {
+  color: var(--grey);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.nav_links {
+  margin-top: 2rem;
+}
+
+.nav_links .nav_list {
+  padding: 1rem 0.6rem;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing);
+}
+
+.nav_list.nav_icons {
+  text-align: center;
+  padding: 14px 10px;
+  transition: var(--transition);
+}
+
+.side_bar .nav_list-container > a {
+  text-decoration: none;
+  color: var(--grey);
+  font-size: 18px;
+}
+
+.side_bar .nav_list-container .nav_list:hover {
+  background: var(--darkpink);
+  color: var(--darkblue);
+  font-weight: bold;
+}
+
+.side_bar .sign_in-icon {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  font-size: 20px;
+  width: 100%;
+}
+
+.side_bar .sign_in-icon .nav_list {
+  list-style: none;
+}
+
+.side_bar .sign_in-icon > a {
+  color: var(--grey);
+  display: block;
+}
+
+.side_bar .sign_in-icon .nav_list:hover {
+  background: var(--darkpink);
+  color: var(--darkblue);
+}

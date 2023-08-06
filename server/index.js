@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const PORT = process.env.PORT | 5000;
+const port = process.env.PORT || 5000;
 
 // routers
 const authentication = require('./routes/authentication');
@@ -21,10 +21,6 @@ app.use('/api/v1/auth', authentication);
 app.use('/api/v1/users', authorize, users);
 app.use('/api/v1/posts', authorize, posts);
 
-// app.listen(5000, () => {
-//   console.log('server running on port 5000...');
-// });
-
-app.listen(PORT, () => {
-  console.log(`server running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`server running on port ${port}`);
 });

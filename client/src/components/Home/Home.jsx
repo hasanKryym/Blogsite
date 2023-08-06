@@ -1,7 +1,6 @@
 import { React, useContext, useEffect, useState } from 'react';
 import './Home.css';
 import { UserContext } from '../../context/user/UserContext';
-import checkAuth from '../../utils/checkAuth';
 import SideBar from '../SideBar/SideBar';
 import Posts from '../Posts/Posts';
 import Aside from './Aside/Aside';

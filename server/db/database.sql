@@ -68,11 +68,11 @@ INSERT INTO category (category_name) VALUES ('gaming');
 INSERT INTO category (category_name) VALUES ('science');
 INSERT INTO category (category_name) VALUES ('art');
 
-CREATE TABLE posts_category(
-    post_id uuid REFERENCES posts(post_id) ON DELETE CASCADE,
-    category_id uuid REFERENCES category(category_id) ON DELETE SET NULL,
-    PRIMARY KEY(post_id, category_id)
-);
+-- CREATE TABLE posts_category(
+--     post_id uuid REFERENCES posts(post_id) ON DELETE CASCADE,
+--     category_id uuid REFERENCES category(category_id) ON DELETE SET NULL,
+--     PRIMARY KEY(post_id, category_id)
+-- );
 
 CREATE TABLE posts_likes(
     post_id uuid REFERENCES posts(post_id) ON DELETE CASCADE,

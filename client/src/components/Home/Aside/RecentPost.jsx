@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './Aside.css';
-import { getUserById } from '../../../data/dataFetching';
 import { Link } from 'react-router-dom';
 
 const RecentPost = ({

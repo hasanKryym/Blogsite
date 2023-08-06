@@ -12,9 +12,16 @@ const posts = require('./routes/posts');
 const authorize = require('./middleware/authorization');
 
 const cors = require('cors');
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+};
 
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 // ROUTES
 app.use('/api/v1/auth', authentication);

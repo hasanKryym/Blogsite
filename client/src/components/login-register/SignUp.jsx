@@ -6,6 +6,8 @@ import { getPostsCategories, getUser } from '../../data/dataFetching';
 import { CategoriesContext } from '../../context/posts/CategoriesContext';
 
 const SignUp = () => {
+  const localhost = 'http://localhost:5000/api/v1';
+  const cyclichost = 'https://blogsitee.cyclic.app/api/v1';
   const navigate = useNavigate();
   const { userData, userInfo } = useContext(UserContext);
   const [user, setUser] = userData;
@@ -55,14 +57,11 @@ const SignUp = () => {
           user_number,
           gender_id,
         };
-        const response = await fetch(
-          'http://localhost:5000/api/v1/auth/register',
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body),
-          }
-        );
+        const response = await fetch(`${cyclichost}/auth/register`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
 
         const parseRes = await response.json();
 

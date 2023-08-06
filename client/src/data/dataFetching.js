@@ -1,11 +1,14 @@
+const localhost = 'http://localhost:5000/api/v1';
+const cyclichost = 'https://blogsitee.cyclic.app/api/v1';
+
 // USER
 
 const getUser = async () => {
   try {
-    const response = await fetch(`http://localhost:5000/api/v1/users`, {
+    const response = await fetch(`${cyclichost}/users`, {
       method: 'GET',
       headers: {
-        Authorization: localStorage.getItem('token'),
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     });
     const parseRes = await response.json();
@@ -17,15 +20,12 @@ const getUser = async () => {
 
 const getUserById = async (user_id) => {
   try {
-    const response = await fetch(
-      `http://localhost:5000/api/v1/users/getUser/${user_id}`,
-      {
-        method: 'GET',
-        headers: {
-          Authorization: localStorage.getItem('token'),
-        },
-      }
-    );
+    const response = await fetch(`${cyclichost}/users/getUser/${user_id}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
     const parseRes = await response.json();
     return parseRes;
   } catch (err) {
@@ -35,10 +35,10 @@ const getUserById = async (user_id) => {
 
 const getUserPosts = async () => {
   try {
-    const response = await fetch(`http://localhost:5000/api/v1/users/posts`, {
+    const response = await fetch(`${cyclichost}/users/posts`, {
       method: 'GET',
       headers: {
-        Authorization: localStorage.getItem('token'),
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     });
     const parseRes = await response.json();
@@ -52,10 +52,10 @@ const getUserPosts = async () => {
 
 const getPosts = async () => {
   try {
-    const response = await fetch(`http://localhost:5000/api/v1/posts`, {
+    const response = await fetch(`${cyclichost}/posts`, {
       method: 'GET',
       headers: {
-        Authorization: localStorage.getItem('token'),
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     });
     const parseRes = await response.json();
@@ -67,15 +67,12 @@ const getPosts = async () => {
 
 const getPostById = async (post_id) => {
   try {
-    const response = await fetch(
-      `http://localhost:5000/api/v1/posts/managePosts/${post_id}`,
-      {
-        method: 'GET',
-        headers: {
-          Authorization: localStorage.getItem('token'),
-        },
-      }
-    );
+    const response = await fetch(`${cyclichost}/posts/managePosts/${post_id}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
     const parseRes = await response.json();
     return parseRes;
   } catch (err) {
@@ -85,15 +82,12 @@ const getPostById = async (post_id) => {
 
 const getRecentPosts = async () => {
   try {
-    const response = await fetch(
-      `http://localhost:5000/api/v1/posts/recentPosts`,
-      {
-        method: 'GET',
-        headers: {
-          Authorization: localStorage.getItem('token'),
-        },
-      }
-    );
+    const response = await fetch(`${cyclichost}/posts/recentPosts`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
     const parseRes = await response.json();
     return parseRes;
   } catch (err) {
@@ -104,11 +98,11 @@ const getRecentPosts = async () => {
 const getPostLikes = async (post_id) => {
   try {
     const response = await fetch(
-      `http://localhost:5000/api/v1/posts/postReactions/likes/${post_id}`,
+      `${cyclichost}/posts/postReactions/likes/${post_id}`,
       {
         method: 'GET',
         headers: {
-          Authorization: localStorage.getItem('token'),
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       }
     );
@@ -121,15 +115,12 @@ const getPostLikes = async (post_id) => {
 
 const getPostsCategories = async () => {
   try {
-    const response = await fetch(
-      `http://localhost:5000/api/v1/posts/categories`,
-      {
-        method: 'GET',
-        headers: {
-          Authorization: localStorage.getItem('token'),
-        },
-      }
-    );
+    const response = await fetch(`${cyclichost}/posts/categories`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
     const parseRes = await response.json();
     return parseRes;
   } catch (err) {
@@ -140,11 +131,11 @@ const getPostsCategories = async () => {
 const getPostsByCategory = async (category_id) => {
   try {
     const response = await fetch(
-      `http://localhost:5000/api/v1/posts/categories/${category_id}`,
+      `${cyclichost}/posts/categories/${category_id}`,
       {
         method: 'GET',
         headers: {
-          Authorization: localStorage.getItem('token'),
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       }
     );
@@ -157,15 +148,12 @@ const getPostsByCategory = async (category_id) => {
 
 const countPostsByCategory = async () => {
   try {
-    const response = await fetch(
-      `http://localhost:5000/api/v1/posts/categoriesCount`,
-      {
-        method: 'GET',
-        headers: {
-          Authorization: localStorage.getItem('token'),
-        },
-      }
-    );
+    const response = await fetch(`${cyclichost}/posts/categoriesCount`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
     const parseRes = await response.json();
     return parseRes;
   } catch (err) {
@@ -175,15 +163,12 @@ const countPostsByCategory = async () => {
 
 const getPopularPosts = async () => {
   try {
-    const response = await fetch(
-      `http://localhost:5000/api/v1/posts/popularPosts`,
-      {
-        method: 'GET',
-        headers: {
-          Authorization: localStorage.getItem('token'),
-        },
-      }
-    );
+    const response = await fetch(`${cyclichost}/posts/popularPosts`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
     const parseRes = await response.json();
     return parseRes;
   } catch (err) {
@@ -194,11 +179,11 @@ const getPopularPosts = async () => {
 const getPostComments = async (post_id) => {
   try {
     const response = await fetch(
-      `http://localhost:5000/api/v1/posts/postReactions/comments/${post_id}`,
+      `${cyclichost}/posts/postReactions/comments/${post_id}`,
       {
         method: 'GET',
         headers: {
-          Authorization: localStorage.getItem('token'),
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       }
     );
@@ -212,11 +197,11 @@ const getPostComments = async (post_id) => {
 const countPostComments = async (post_id) => {
   try {
     const response = await fetch(
-      `http://localhost:5000/api/v1/posts/postReactions/commentsCount/${post_id}`,
+      `${cyclichost}/posts/postReactions/commentsCount/${post_id}`,
       {
         method: 'GET',
         headers: {
-          Authorization: localStorage.getItem('token'),
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       }
     );
@@ -230,13 +215,11 @@ const countPostComments = async (post_id) => {
 const searchPosts = async (query) => {
   try {
     const response = await fetch(
-      `http://localhost:5000/api/v1/posts/search?query=${encodeURIComponent(
-        query
-      )}`,
+      `${cyclichost}/posts/search?query=${encodeURIComponent(query)}`,
       {
         method: 'GET',
         headers: {
-          Authorization: localStorage.getItem('token'),
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       }
     );

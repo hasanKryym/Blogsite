@@ -2,7 +2,7 @@ module.exports = async (token) => {
   try {
     if (token) {
       const response = await fetch('http://localhost:5000/api/v1/auth', {
-        headers: { Authorization: `${token}` },
+        headers: { Authorization: `Bearer ${token}` },
       });
       const parseRes = await response.json();
 

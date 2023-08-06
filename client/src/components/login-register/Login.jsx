@@ -13,6 +13,8 @@ const Login = () => {
   const [categories, setCategories] = categoriesData;
   const [user, setUser] = userData;
   const [userDetails, setUserDetails] = userInfo;
+  const localhost = 'http://localhost:5000/api/v1';
+  const cyclichost = 'https://blogsitee.cyclic.app/api/v1';
 
   const [inputs, setInputs] = useState({
     user_email: '',
@@ -32,16 +34,14 @@ const Login = () => {
     try {
       if (user_email && user_password) {
         const body = { user_email, user_password };
-        const response = await fetch(
-          'http://localhost:5000/api/v1/auth/login',
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body),
-          }
-        );
+        const response = await fetch(`${cyclichost}/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
 
         const parseRes = await response.json();
+        console.log(parseRes);
         if (parseRes.token) {
           localStorage.setItem('token', parseRes.token);
           localStorage.setItem('user_id', parseRes.user_id);

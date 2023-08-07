@@ -1,7 +1,10 @@
+const localhost = 'http://localhost:5000/api/v1';
+const cyclichost = 'https://blogsitee.cyclic.app/api/v1';
+
 module.exports = async (token) => {
   try {
     if (token) {
-      const response = await fetch('http://localhost:5000/api/v1/auth', {
+      const response = await fetch(`${cyclichost}/auth`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const parseRes = await response.json();

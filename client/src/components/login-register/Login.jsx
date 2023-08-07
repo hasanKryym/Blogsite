@@ -41,7 +41,6 @@ const Login = () => {
         });
 
         const parseRes = await response.json();
-        console.log(parseRes);
         if (parseRes.token) {
           localStorage.setItem('token', parseRes.token);
           localStorage.setItem('user_id', parseRes.user_id);

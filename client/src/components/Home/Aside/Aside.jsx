@@ -11,21 +11,27 @@ import {
 } from '../../../data/dataFetching';
 import { Link } from 'react-router-dom';
 import debounce from 'lodash.debounce';
+import Loading from '../../Loading/Loading';
 
 const Aside = () => {
   const [recentPosts, setRecentPosts] = useState([]);
   const [popularPosts, setPopularPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const response = getRecentPosts();
-    response.then((res) => {
+    const recent_posts = getRecentPosts();
+    recent_posts.then((res) => {
       setRecentPosts(res);
+      getPopular_posts();
     });
 
-    const popular_posts = getPopularPosts();
-    popular_posts.then((res) => {
-      setPopularPosts(res);
-    });
+    const getPopular_posts = () => {
+      const popular_posts = getPopularPosts();
+      popular_posts.then((res) => {
+        setPopularPosts(res);
+        setIsLoading(false);
+      });
+    };
   }, []);
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -66,61 +72,65 @@ const Aside = () => {
             <ul className="search_results">
               {searchResult.map(({ post_id, post_title }) => {
                 return (
-                  <Link to={`/posts/postDetails/${post_id}`}>
-                    <li id={post_id} key={post_id}>
-                      {post_title}
-                    </li>
+                  <Link key={post_id} to={`/posts/postDetails/${post_id}`}>
+                    <li id={post_id}>{post_title}</li>
                   </Link>
                 );
               })}
             </ul>
           )}
         </div>
-        <div className="popular_posts-container">
-          <h3>popular posts</h3>
-          <div className="slider">
-            <AliceCarousel
-              autoPlay
-              infinite
-              autoPlayInterval={4000}
-              disableButtonsControls
-              touchMoveDefaultEvents
-            >
-              {popularPosts.map((post) => {
-                return (
-                  <>
-                    <Link
-                      to={`/posts/postDetails/${post.post_id}`}
-                      key={post.post_id}
-                    >
-                      <div className="image_container">
-                        <img
-                          className="popular_posts-image"
-                          src={post.post_image}
-                          alt=""
-                        />
-                        <div className="image_content">
-                          <h3>{post.post_title}</h3>
-                          <p>{post.post_desc}</p>
-                        </div>
-                      </div>
-                    </Link>
-                  </>
-                );
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            <div className="popular_posts-container">
+              <h3>popular posts</h3>
+              <div className="slider">
+                <AliceCarousel
+                  autoPlay
+                  infinite
+                  autoPlayInterval={4000}
+                  disableButtonsControls
+                  touchMoveDefaultEvents
+                >
+                  {popularPosts.map((post) => {
+                    return (
+                      <>
+                        <Link
+                          to={`/posts/postDetails/${post.post_id}`}
+                          key={post.post_id}
+                        >
+                          <div className="image_container">
+                            <img
+                              className="popular_posts-image"
+                              src={post.post_image}
+                              alt=""
+                            />
+                            <div className="image_content">
+                              <h3>{post.post_title}</h3>
+                              <p>{post.post_desc}</p>
+                            </div>
+                          </div>
+                        </Link>
+                      </>
+                    );
+                  })}
+                </AliceCarousel>
+              </div>
+            </div>
+            <div className="post_categories">
+              <h3>Categories</h3>
+              <Categories />
+            </div>
+            <div className="recent_posts-container">
+              <h3>recent posts</h3>
+              {recentPosts.map((post) => {
+                return <RecentPost key={post.post_id} {...post} />;
               })}
-            </AliceCarousel>
-          </div>
-        </div>
-        <div className="post_categories">
-          <h3>Categories</h3>
-          <Categories />
-        </div>
-        <div className="recent_posts-container">
-          <h3>recent posts</h3>
-          {recentPosts.map((post) => {
-            return <RecentPost key={post.post_id} {...post} />;
-          })}
-        </div>
+            </div>
+          </>
+        )}
       </aside>
     </>
   );

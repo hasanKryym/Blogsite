@@ -6,7 +6,7 @@ export const UserContext = createContext();
 
 export const UserStatus = (props) => {
   const [user, setUser] = useState({
-    isLoggedIn: false,
+    isLoggedIn: localStorage.getItem('token') ? true : false,
     isAdmin: false,
     user_id: localStorage.getItem('user_id'),
     token: localStorage.getItem('token'),

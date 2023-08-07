@@ -13,7 +13,7 @@ const authorize = require('./middleware/authorization');
 
 const cors = require('cors');
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  // origin: 'http://localhost:3000',
   allowedHeaders: ['Content-Type', 'Authorization'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 };

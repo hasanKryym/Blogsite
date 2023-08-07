@@ -10,6 +10,7 @@ const PostComments = ({ post_id, closeComments, addComment }) => {
   const [commentContent, setCommentContent] = useState('');
   const { userInfo } = useContext(UserContext);
   const [userDetails, setUserDetails] = userInfo;
+  const [isLoading, setIsLoading] = useState(true);
 
   const postComment = async () => {
     if (!commentContent) return;
@@ -25,7 +26,9 @@ const PostComments = ({ post_id, closeComments, addComment }) => {
   useEffect(() => {
     const post_comments = getPostComments(post_id);
     post_comments.then((res) => {
+      console.log(res);
       setPostComments(res);
+      setIsLoading(false);
     });
   }, []);
 
@@ -36,12 +39,18 @@ const PostComments = ({ post_id, closeComments, addComment }) => {
           <i className="fa-solid fa-xmark"></i>
         </button>
         <div className="comments_container">
-          {postComments.length !== 0 ? (
-            postComments.map((comment) => {
-              return <Comment key={comment.comment_id} {...comment} />;
-            })
+          {isLoading ? (
+            isLoading
           ) : (
-            <span>no comments</span>
+            <>
+              {postComments.length !== 0 ? (
+                postComments.map((comment) => {
+                  return <Comment key={comment.comment_id} {...comment} />;
+                })
+              ) : (
+                <span>no comments</span>
+              )}
+            </>
           )}
         </div>
 

@@ -6,7 +6,7 @@ export const UserContext = createContext();
 
 export const UserStatus = (props) => {
   const { getUser } = require('../../data/dataFetching');
-  const checkAuth = require('../../utils/checkAuth');
+  const { checkAuth } = require('../../utils/checkAuth');
 
   const [user, setUser] = useState({
     isLoggedIn: localStorage.getItem('token') ? true : false,

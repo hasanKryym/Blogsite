@@ -3,7 +3,7 @@ const cyclichost = 'https://blogsitee.cyclic.app/api/v1';
 
 // USER
 
-const editUser = async (inputs) => {
+export const editUser = async (inputs) => {
   try {
     const body = inputs;
     const response = await fetch(`${cyclichost}/users/edit`, {
@@ -24,7 +24,7 @@ const editUser = async (inputs) => {
 
 // POSTS
 
-const addPost = async (inputs) => {
+export const addPost = async (inputs) => {
   try {
     const body = inputs;
     const response = await fetch(`${cyclichost}/posts/`, {
@@ -42,7 +42,7 @@ const addPost = async (inputs) => {
   }
 };
 
-const managePostLikes = async (post_id) => {
+export const managePostLikes = async (post_id) => {
   try {
     const response = await fetch(
       `${cyclichost}/posts/postReactions/likes/${post_id}`,
@@ -60,7 +60,7 @@ const managePostLikes = async (post_id) => {
   }
 };
 
-const managePostViews = async (post_id) => {
+export const managePostViews = async (post_id) => {
   try {
     const response = await fetch(
       `${cyclichost}/posts/postReactions/views/${post_id}`,
@@ -78,7 +78,7 @@ const managePostViews = async (post_id) => {
   }
 };
 
-const addPostComment = async (post_id, comment_content) => {
+export const addPostComment = async (post_id, comment_content) => {
   try {
     const body = { comment_content };
     const response = await fetch(
@@ -99,10 +99,10 @@ const addPostComment = async (post_id, comment_content) => {
   }
 };
 
-module.exports = {
-  editUser,
-  addPost,
-  managePostLikes,
-  managePostViews,
-  addPostComment,
-};
+// module.exports = {
+//   editUser,
+//   addPost,
+//   managePostLikes,
+//   managePostViews,
+//   addPostComment,
+// };

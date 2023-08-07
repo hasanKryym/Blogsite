@@ -3,7 +3,7 @@ const cyclichost = 'https://blogsitee.cyclic.app/api/v1';
 
 // USER
 
-const getUser = async () => {
+export const getUser = async () => {
   try {
     const response = await fetch(`${cyclichost}/users`, {
       method: 'GET',
@@ -18,7 +18,7 @@ const getUser = async () => {
   }
 };
 
-const getUserById = async (user_id) => {
+export const getUserById = async (user_id) => {
   try {
     const response = await fetch(`${cyclichost}/users/getUser/${user_id}`, {
       method: 'GET',
@@ -33,7 +33,7 @@ const getUserById = async (user_id) => {
   }
 };
 
-const getUserPosts = async () => {
+export const getUserPosts = async () => {
   try {
     const response = await fetch(`${cyclichost}/users/posts`, {
       method: 'GET',
@@ -50,7 +50,7 @@ const getUserPosts = async () => {
 
 // POSTS
 
-const getPosts = async () => {
+export const getPosts = async () => {
   try {
     const response = await fetch(`${cyclichost}/posts`, {
       method: 'GET',
@@ -65,7 +65,7 @@ const getPosts = async () => {
   }
 };
 
-const getPostById = async (post_id) => {
+export const getPostById = async (post_id) => {
   try {
     const response = await fetch(`${cyclichost}/posts/managePosts/${post_id}`, {
       method: 'GET',
@@ -80,7 +80,7 @@ const getPostById = async (post_id) => {
   }
 };
 
-const getRecentPosts = async () => {
+export const getRecentPosts = async () => {
   try {
     const response = await fetch(`${cyclichost}/posts/recentPosts`, {
       method: 'GET',
@@ -95,7 +95,7 @@ const getRecentPosts = async () => {
   }
 };
 
-const getPostLikes = async (post_id) => {
+export const getPostLikes = async (post_id) => {
   try {
     const response = await fetch(
       `${cyclichost}/posts/postReactions/likes/${post_id}`,
@@ -113,7 +113,7 @@ const getPostLikes = async (post_id) => {
   }
 };
 
-const getPostsCategories = async () => {
+export const getPostsCategories = async () => {
   try {
     const response = await fetch(`${cyclichost}/posts/categories`, {
       method: 'GET',
@@ -128,7 +128,7 @@ const getPostsCategories = async () => {
   }
 };
 
-const getPostsByCategory = async (category_id) => {
+export const getPostsByCategory = async (category_id) => {
   try {
     const response = await fetch(
       `${cyclichost}/posts/categories/${category_id}`,
@@ -146,7 +146,7 @@ const getPostsByCategory = async (category_id) => {
   }
 };
 
-const countPostsByCategory = async () => {
+export const countPostsByCategory = async () => {
   try {
     const response = await fetch(`${cyclichost}/posts/categoriesCount`, {
       method: 'GET',
@@ -161,7 +161,7 @@ const countPostsByCategory = async () => {
   }
 };
 
-const getPopularPosts = async () => {
+export const getPopularPosts = async () => {
   try {
     const response = await fetch(`${cyclichost}/posts/popularPosts`, {
       method: 'GET',
@@ -176,7 +176,7 @@ const getPopularPosts = async () => {
   }
 };
 
-const getPostComments = async (post_id) => {
+export const getPostComments = async (post_id) => {
   try {
     const response = await fetch(
       `${cyclichost}/posts/postReactions/comments/${post_id}`,
@@ -194,7 +194,7 @@ const getPostComments = async (post_id) => {
   }
 };
 
-const countPostComments = async (post_id) => {
+export const countPostComments = async (post_id) => {
   try {
     const response = await fetch(
       `${cyclichost}/posts/postReactions/commentsCount/${post_id}`,
@@ -212,7 +212,7 @@ const countPostComments = async (post_id) => {
   }
 };
 
-const searchPosts = async (query) => {
+export const searchPosts = async (query) => {
   try {
     const response = await fetch(
       `${cyclichost}/posts/search?query=${encodeURIComponent(query)}`,
@@ -230,19 +230,19 @@ const searchPosts = async (query) => {
   }
 };
 
-module.exports = {
-  getUser,
-  getUserById,
-  getUserPosts,
-  getPosts,
-  getPostById,
-  getRecentPosts,
-  getPostLikes,
-  getPostsCategories,
-  getPostsByCategory,
-  countPostsByCategory,
-  getPopularPosts,
-  getPostComments,
-  countPostComments,
-  searchPosts,
-};
+// module.exports = {
+//   getUser,
+//   getUserById,
+//   getUserPosts,
+//   getPosts,
+//   getPostById,
+//   getRecentPosts,
+//   getPostLikes,
+//   getPostsCategories,
+//   getPostsByCategory,
+//   countPostsByCategory,
+//   getPopularPosts,
+//   getPostComments,
+//   countPostComments,
+//   searchPosts,
+// };

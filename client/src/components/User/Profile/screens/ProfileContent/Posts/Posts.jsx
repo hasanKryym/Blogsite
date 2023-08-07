@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './Posts.css';
 import Post from './Post/Post';
-import { getUserPosts } from '../../../../../../data/dataFetching';
 import PostLoader from '../../../../../Loading/PostLoader/PostLoader';
-import { deletePost } from '../../../../../../data/dataDeleting';
+// import { getUserPosts } from '../../../../../../data/dataFetching';
+// import { deletePost } from '../../../../../../data/dataDeleting';
 
 const Posts = () => {
+  const { getUserPosts } = require('../../../../../../data/dataFetching');
+  const { deletePost } = require('../../../../../../data/dataDeleting');
+
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {

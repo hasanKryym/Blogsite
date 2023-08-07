@@ -1,18 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import './PostDetails.css';
 import { useParams } from 'react-router-dom';
-import {
-  countPostComments,
-  getPostById,
-  getPostLikes,
-} from '../../../data/dataFetching';
 import Loading from '../../Loading/Loading';
 import MobileNav from '../../Mobile/MobileNav/MobileNav';
 import SideBar from '../../SideBar/SideBar';
-import { managePostLikes, managePostViews } from '../../../data/dataPosting';
+// import {
+//   countPostComments,
+//   getPostById,
+//   getPostLikes,
+// } from '../../../data/dataFetching';
+
+// import { managePostLikes, managePostViews } from '../../../data/dataPosting';
 import PostComments from '../PostComments/PostComments';
 
 const PostDetails = () => {
+  const {
+    countPostComments,
+    getPostById,
+    getPostLikes,
+  } = require('../../../data/dataFetching');
+
+  const {
+    managePostLikes,
+    managePostViews,
+  } = require('../../../data/dataPosting');
+
   const params = useParams();
   const { id: post_id } = params;
 

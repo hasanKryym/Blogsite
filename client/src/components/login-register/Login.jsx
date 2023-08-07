@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/user/UserContext';
-import { getPostsCategories, getUser } from '../../data/dataFetching';
 import { CategoriesContext } from '../../context/posts/CategoriesContext';
+// import { getPostsCategories, getUser } from '../../data/dataFetching';
 
 const Login = () => {
+  const { getPostsCategories, getUser } = require('../../data/dataFetching');
   const { userData, userInfo } = useContext(UserContext);
   const { categoriesData } = useContext(CategoriesContext);
   const [categories, setCategories] = categoriesData;

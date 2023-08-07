@@ -3,10 +3,11 @@ import Category from './Category';
 import './Categories.css';
 import { CategoriesContext } from '../../../context/posts/CategoriesContext';
 import { Link } from 'react-router-dom';
-import { countPostsByCategory } from '../../../data/dataFetching';
 import Loading from '../../Loading/Loading';
+// import { countPostsByCategory } from '../../../data/dataFetching';
 
 const Categories = () => {
+  const { countPostsByCategory } = require('../../../data/dataFetching');
   const { categoriesData } = useContext(CategoriesContext);
   const [categories, setCategories] = categoriesData;
   const [showFullList, setShowFullList] = useState(false);

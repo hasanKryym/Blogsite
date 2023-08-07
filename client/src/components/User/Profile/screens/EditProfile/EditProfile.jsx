@@ -3,10 +3,12 @@ import './EditProfile.css';
 import { UserContext } from '../../../../../context/user/UserContext';
 import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../../../../Loading/Loading';
-import { editUser } from '../../../../../data/dataPosting';
 import { ToastContainer, toast } from 'react-toastify';
+// import { editUser } from '../../../../../data/dataPosting';
 
 const EditProfile = () => {
+  const { editUser } = require('../../../../../data/dataPosting');
+
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(true);

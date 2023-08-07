@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './Post.css';
 import { Link } from 'react-router-dom';
-import { managePostLikes } from '../../../../../../../data/dataPosting';
-import { getPostLikes } from '../../../../../../../data/dataFetching';
+// import { managePostLikes } from '../../../../../../../data/dataPosting';
+// import { getPostLikes } from '../../../../../../../data/dataFetching';
 
 const Post = ({
   post_id,
@@ -13,6 +13,9 @@ const Post = ({
   post_views,
   deleteFromPosts,
 }) => {
+  const { getPostLikes } = require('../../../../../../../data/dataFetching');
+  const { managePostLikes } = require('../../../../../../../data/dataPosting');
+
   const [isLoading, setIsLoading] = useState(true);
 
   const [postReactions, setPostReactions] = useState({

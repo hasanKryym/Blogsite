@@ -4,14 +4,15 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import AddImage from '../../../data/AddImage';
 import { useNavigate } from 'react-router-dom';
-import { addPost } from '../../../data/dataPosting';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MobileNav from '../../Mobile/MobileNav/MobileNav';
 import { CategoriesContext } from '../../../context/posts/CategoriesContext';
 import HomeLink from '../../Home/HomeLink/HomeLink';
+// import { addPost } from '../../../data/dataPosting';
 
 const AddPost = () => {
+  const { addPost } = require('../../../data/dataPosting');
   const navigate = useNavigate();
 
   const { categoriesData } = useContext(CategoriesContext);

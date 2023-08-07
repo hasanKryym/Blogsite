@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import './Login_register.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/user/UserContext';
-import { getPostsCategories, getUser } from '../../data/dataFetching';
 import { CategoriesContext } from '../../context/posts/CategoriesContext';
+// import { getPostsCategories, getUser } from '../../data/dataFetching';
 
 const SignUp = () => {
+  const { getPostsCategories, getUser } = require('../../data/dataFetching');
+
   const localhost = 'http://localhost:5000/api/v1';
   const cyclichost = 'https://blogsitee.cyclic.app/api/v1';
   const navigate = useNavigate();

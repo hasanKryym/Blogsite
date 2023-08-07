@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './PostComments.css';
-import { addPostComment } from '../../../data/dataPosting';
-import { getPostComments } from '../../../data/dataFetching';
 import Comment from './Comment/Comment';
 import { UserContext } from '../../../context/user/UserContext';
+// import { addPostComment } from '../../../data/dataPosting';
+// import { getPostComments } from '../../../data/dataFetching';
 
 const PostComments = ({ post_id, closeComments, addComment }) => {
+  const { addPostComment } = require('../../../data/dataPosting');
+  const { getPostComments } = require('../../../data/dataFetching');
+
   const [postComments, setPostComments] = useState([]);
   const [commentContent, setCommentContent] = useState('');
   const { userInfo } = useContext(UserContext);

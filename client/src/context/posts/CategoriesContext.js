@@ -1,9 +1,10 @@
 import React, { useState, createContext, useEffect } from 'react';
-import { getPostsCategories } from '../../data/dataFetching';
+// import { getPostsCategories } from '../../data/dataFetching';
 
 export const CategoriesContext = createContext();
 
 export const CategoriesStatus = (props) => {
+  const { getPostsCategories } = require('../../data/dataFetching');
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {

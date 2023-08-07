@@ -1,10 +1,13 @@
 import React, { useState, createContext, useEffect } from 'react';
-import checkAuth from '../../utils/checkAuth';
-import { getUser } from '../../data/dataFetching';
+// import checkAuth from '../../utils/checkAuth';
+// import { getUser } from '../../data/dataFetching';
 
 export const UserContext = createContext();
 
 export const UserStatus = (props) => {
+  const { getUser } = require('../../data/dataFetching');
+  const checkAuth = require('../../utils/checkAuth');
+
   const [user, setUser] = useState({
     isLoggedIn: localStorage.getItem('token') ? true : false,
     isAdmin: false,

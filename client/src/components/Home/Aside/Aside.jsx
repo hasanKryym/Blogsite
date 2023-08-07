@@ -4,16 +4,22 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import RecentPost from './RecentPost';
 import Categories from '../../Posts/Categories/Categories';
-import {
-  getPopularPosts,
-  getRecentPosts,
-  searchPosts,
-} from '../../../data/dataFetching';
+// import {
+//   getPopularPosts,
+//   getRecentPosts,
+//   searchPosts,
+// } from '../../../data/dataFetching';
+
 import { Link } from 'react-router-dom';
 import debounce from 'lodash.debounce';
 import Loading from '../../Loading/Loading';
 
 const Aside = () => {
+  const {
+    getPopularPosts,
+    getRecentPosts,
+    searchPosts,
+  } = require('../../../data/dataFetching');
   const [recentPosts, setRecentPosts] = useState([]);
   const [popularPosts, setPopularPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './Posts.css';
 import Post from './Post';
 import { useNavigate } from 'react-router-dom';
-import { getPosts, getPostsByCategory } from '../../data/dataFetching';
 import { ToastContainer, toast } from 'react-toastify';
 import PostLoader from '../Loading/PostLoader/PostLoader';
+// import { getPosts, getPostsByCategory } from '../../data/dataFetching';
 
 const Posts = ({ category_id }) => {
+  const { getPosts, getPostsByCategory } = require('../../data/dataFetching');
+
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

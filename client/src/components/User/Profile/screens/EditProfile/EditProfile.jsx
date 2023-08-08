@@ -40,6 +40,7 @@ const EditProfile = () => {
   const edit = (e) => {
     e.preventDefault();
     const flag = user_name && user_address && user_number;
+    console.log(user_name, user_address, user_number);
     if (flag) {
       editUser(inputs);
       setUserDetails({ ...userDetails, user_name, user_address, user_number });

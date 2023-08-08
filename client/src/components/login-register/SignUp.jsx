@@ -211,7 +211,7 @@ const SignUp = () => {
           </div>
 
           <button type="submit" className="submit">
-            Sign in
+            Sign up
           </button>
 
           <p className="signup-link">

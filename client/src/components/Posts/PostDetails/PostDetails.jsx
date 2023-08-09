@@ -100,7 +100,9 @@ const PostDetails = () => {
           <SideBar />
         </div>
         {isLoading ? (
-          <Loading />
+          <div className="loading_container">
+            <Loading />
+          </div>
         ) : (
           <>
             <article className="postDetails_article">

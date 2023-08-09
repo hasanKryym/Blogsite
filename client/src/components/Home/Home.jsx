@@ -15,6 +15,7 @@ const Home = () => {
   useEffect(() => {
     if (!user.isLoggedIn) navigate('/login');
   }, [user]);
+
   const params = useParams();
   let category_id = params.category_id;
   if (!category_id) category_id = 'all';

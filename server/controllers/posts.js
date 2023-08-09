@@ -337,6 +337,8 @@ const getPostComments = async (req, res) => {
       [post_id]
     );
 
+    if (comments.rows.length === 0) return res.status(200).json(comments.rows);
+
     comments.rows.map(async (comment, i) => {
       const userData = await pool.query(
         'SELECT user_name, user_image FROM users WHERE user_id = $1',

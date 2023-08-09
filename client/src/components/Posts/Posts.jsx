@@ -14,6 +14,7 @@ const Posts = ({ category_id }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     if (category_id === 'all') {
       const response = getPosts();
       response.then((res) => {

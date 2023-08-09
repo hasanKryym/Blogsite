@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './PostComments.css';
 import Comment from './Comment/Comment';
 import { UserContext } from '../../../context/user/UserContext';
+import Loading from '../../Loading/Loading';
 // import { addPostComment } from '../../../data/dataPosting';
 // import { getPostComments } from '../../../data/dataFetching';
 
@@ -30,7 +31,7 @@ const PostComments = ({ post_id, closeComments, addComment }) => {
     const post_comments = getPostComments(post_id);
     post_comments.then((res) => {
       console.log(res);
-      setPostComments(res);
+      if (res) setPostComments(res);
       setIsLoading(false);
     });
   }, []);
@@ -43,7 +44,7 @@ const PostComments = ({ post_id, closeComments, addComment }) => {
         </button>
         <div className="comments_container">
           {isLoading ? (
-            isLoading
+            <Loading />
           ) : (
             <>
               {postComments.length !== 0 ? (

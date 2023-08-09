@@ -1,5 +1,4 @@
 .mobile_filter-container {
-  position: fixed;
   width: 100vw;
   min-height: 100vh;
   background: var(--darkblue);

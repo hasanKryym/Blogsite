@@ -25,6 +25,9 @@ const Aside = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const width = window.innerWidth;
+    if (width <= 560) return;
+
     const recent_posts = getRecentPosts();
     recent_posts.then((res) => {
       setRecentPosts(res);

@@ -1,0 +1,48 @@
+.mobile_filter-container {
+  position: fixed;
+  width: 100vw;
+  min-height: 100vh;
+  background: var(--darkblue);
+  padding: 1rem 1rem 2.5rem 1rem;
+}
+
+.mobile_filter-container > button {
+  color: var(--darkpink);
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  padding: 5px 20px 5px 0;
+  margin-bottom: 1rem;
+}
+
+/* SLIDE ON TOP ANIMATION */
+
+.slide-in-top {
+  -webkit-animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

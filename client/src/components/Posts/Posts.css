@@ -10,6 +10,18 @@
   gap: 1rem 2rem;
 }
 
+.posts_container .mobile_filter-btn {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 10px;
+  z-index: 100;
+  border: none;
+  font-size: 24px;
+  color: var(--darkblue);
+  background: transparent;
+}
+
 @media screen and (max-width: 860px) {
   .posts_container {
     width: 100%;
@@ -25,5 +37,9 @@
     overflow: auto;
     align-items: center;
     gap: 2rem;
+  }
+
+  .posts_container .mobile_filter-btn {
+    display: initial;
   }
 }

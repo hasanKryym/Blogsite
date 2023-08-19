@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Comment.css';
 import profileImg from '../../../../images/profile.jpg';
+import { UserContext } from '../../../../context/user/UserContext';
 
 const Comment = ({
   comment_content,
@@ -9,7 +10,11 @@ const Comment = ({
   user_id,
   user_image,
   user_name,
+  deleteComment,
 }) => {
+  const { deletePostComment } = require('../../../../data/dataDeleting');
+  const { userInfo } = useContext(UserContext);
+  const [userDetails, setUserDetails] = userInfo;
   return (
     <>
       <div className="comment">
@@ -24,6 +29,17 @@ const Comment = ({
             <p>{comment_content}</p>
           </div>
         </div>
+        {userDetails.user_id === user_id && (
+          <button
+            onClick={() => {
+              deleteComment(comment_id);
+              deletePostComment(comment_id);
+            }}
+            className="trash"
+          >
+            <i className="fa-solid fa-trash"></i>
+          </button>
+        )}
       </div>
     </>
   );

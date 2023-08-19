@@ -360,6 +360,18 @@ const getPostComments = async (req, res) => {
   }
 };
 
+const deletePostComment = async (req, res) => {
+  const { id: comment_id } = req.params;
+
+  await pool.query('DELETE FROM posts_comments WHERE comment_id = $1', [
+    comment_id,
+  ]);
+
+  return res
+    .status(200)
+    .json({ success: true, msg: 'comment deleted successfully' });
+};
+
 const countPostComments = async (req, res) => {
   try {
     const { id: post_id } = req.params;
@@ -407,6 +419,7 @@ module.exports = {
   getPopularPosts,
   addPostComment,
   getPostComments,
+  deletePostComment,
   countPostComments,
   searchPosts,
 };

@@ -1,12 +1,11 @@
-const localhost = 'http://localhost:5000/api/v1';
-const cyclichost = 'https://blogsitee.cyclic.app/api/v1';
+const server = process.env.REACT_APP_HOST_URL;
 
 // USER
 
 export const editUser = async (inputs) => {
   try {
     const body = inputs;
-    const response = await fetch(`${cyclichost}/users/edit`, {
+    const response = await fetch(`${server}/users/edit`, {
       method: 'PATCH',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -27,7 +26,7 @@ export const editUser = async (inputs) => {
 export const addPost = async (inputs) => {
   try {
     const body = inputs;
-    const response = await fetch(`${cyclichost}/posts/`, {
+    const response = await fetch(`${server}/posts/`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -45,7 +44,7 @@ export const addPost = async (inputs) => {
 export const managePostLikes = async (post_id) => {
   try {
     const response = await fetch(
-      `${cyclichost}/posts/postReactions/likes/${post_id}`,
+      `${server}/posts/postReactions/likes/${post_id}`,
       {
         method: 'POST',
         headers: {
@@ -63,7 +62,7 @@ export const managePostLikes = async (post_id) => {
 export const managePostViews = async (post_id) => {
   try {
     const response = await fetch(
-      `${cyclichost}/posts/postReactions/views/${post_id}`,
+      `${server}/posts/postReactions/views/${post_id}`,
       {
         method: 'POST',
         headers: {
@@ -82,7 +81,7 @@ export const addPostComment = async (post_id, comment_content) => {
   try {
     const body = { comment_content };
     const response = await fetch(
-      `${cyclichost}/posts/postReactions/comments/${post_id}`,
+      `${server}/posts/postReactions/comments/${post_id}`,
       {
         method: 'POST',
         headers: {

@@ -53,6 +53,13 @@ const PostDetails = () => {
     });
   };
 
+  const decreaseCommentCounter = () => {
+    setPostReactions({
+      ...postReactions,
+      comments: +postReactions.comments - 1,
+    });
+  };
+
   const [showCommentsSection, setShowCommentSection] = useState(false);
 
   const closeComments = () => {
@@ -108,6 +115,7 @@ const PostDetails = () => {
             <article className="postDetails_article">
               {showCommentsSection && (
                 <PostComments
+                  decreaseCommentCounter={decreaseCommentCounter}
                   addComment={addComment}
                   post_id={post_id}
                   closeComments={closeComments}

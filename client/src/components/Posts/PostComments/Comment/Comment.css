@@ -1,6 +1,9 @@
 .comment {
   width: 100%;
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .comment .user_profile-info {
   display: flex;
@@ -12,4 +15,20 @@
   max-height: 50px;
   object-fit: cover;
   border-radius: 100px;
+}
+
+.comment .trash {
+  padding: 8px 12px;
+  border: none;
+  background: #d11a2a;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 18px;
+  transition: var(--transition);
+}
+
+.comment .trash:hover {
+  cursor: pointer;
+  background: transparent;
+  color: #d11a2a;
 }

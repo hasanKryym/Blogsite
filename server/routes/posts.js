@@ -17,6 +17,7 @@ const {
   getPostComments,
   countPostComments,
   searchPosts,
+  deletePostComment,
 } = require('../controllers/posts');
 const router = express.Router();
 
@@ -38,7 +39,8 @@ router.route('/postReactions/views/:id').post(managePostViews);
 router
   .route('/postReactions/comments/:id')
   .post(addPostComment)
-  .get(getPostComments);
+  .get(getPostComments)
+  .delete(deletePostComment);
 
 router.route('/postReactions/commentsCount/:id').get(countPostComments);
 

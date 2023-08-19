@@ -14,8 +14,7 @@ const Login = () => {
   const [categories, setCategories] = categoriesData;
   const [user, setUser] = userData;
   const [userDetails, setUserDetails] = userInfo;
-  const localhost = 'http://localhost:5000/api/v1';
-  const cyclichost = 'https://blogsitee.cyclic.app/api/v1';
+  const server = process.env.REACT_APP_HOST_URL;
 
   const [inputs, setInputs] = useState({
     user_email: '',
@@ -35,7 +34,7 @@ const Login = () => {
     try {
       if (user_email && user_password) {
         const body = { user_email, user_password };
-        const response = await fetch(`${cyclichost}/auth/login`, {
+        const response = await fetch(`${server}/auth/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(body),

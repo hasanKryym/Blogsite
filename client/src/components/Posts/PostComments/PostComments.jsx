@@ -6,7 +6,12 @@ import Loading from '../../Loading/Loading';
 // import { addPostComment } from '../../../data/dataPosting';
 // import { getPostComments } from '../../../data/dataFetching';
 
-const PostComments = ({ post_id, closeComments, addComment }) => {
+const PostComments = ({
+  post_id,
+  closeComments,
+  addComment,
+  decreaseCommentCounter,
+}) => {
   const { addPostComment } = require('../../../data/dataPosting');
   const { getPostComments } = require('../../../data/dataFetching');
 
@@ -36,6 +41,14 @@ const PostComments = ({ post_id, closeComments, addComment }) => {
     });
   }, []);
 
+  const deleteComment = (comment_id) => {
+    const filteredComments = postComments.filter((comment) => {
+      return comment.comment_id !== comment_id;
+    });
+    setPostComments(filteredComments);
+    decreaseCommentCounter();
+  };
+
   return (
     <>
       <section className="post_comments-container">
@@ -49,7 +62,13 @@ const PostComments = ({ post_id, closeComments, addComment }) => {
             <>
               {postComments.length !== 0 ? (
                 postComments.map((comment) => {
-                  return <Comment key={comment.comment_id} {...comment} />;
+                  return (
+                    <Comment
+                      key={comment.comment_id}
+                      {...comment}
+                      deleteComment={deleteComment}
+                    />
+                  );
                 })
               ) : (
                 <span>no comments</span>
